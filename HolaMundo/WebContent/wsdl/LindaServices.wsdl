@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://services.linda.co.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://services.linda.co.com" xmlns:intf="http://services.linda.co.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://services.linda.co.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="servicioLinda">
+    <complexType/>
+   </element>
+   <element name="servicioLindaResponse">
+    <complexType>
+     <sequence>
+      <element name="servicioLindaReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="servicioLindaResponse">
+
+      <wsdl:part element="impl:servicioLindaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="servicioLindaRequest">
+
+      <wsdl:part element="impl:servicioLinda" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="LindaServices">
+
+      <wsdl:operation name="servicioLinda">
+
+         <wsdl:input message="impl:servicioLindaRequest" name="servicioLindaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:servicioLindaResponse" name="servicioLindaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="LindaServicesSoapBinding" type="impl:LindaServices">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="servicioLinda">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="servicioLindaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="servicioLindaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="LindaServicesService">
+
+      <wsdl:port binding="impl:LindaServicesSoapBinding" name="LindaServices">
+
+         <wsdlsoap:address location="http://localhost:8080/HolaMundo/services/LindaServices"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

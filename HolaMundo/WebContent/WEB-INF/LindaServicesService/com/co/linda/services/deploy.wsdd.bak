@@ -1,0 +1,28 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from LindaServicesService WSDL service -->
+
+  <service name="LindaServices" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://services.linda.co.com"/>
+      <parameter name="wsdlServiceElement" value="LindaServicesService"/>
+      <parameter name="schemaQualified" value="http://services.linda.co.com"/>
+      <parameter name="wsdlServicePort" value="LindaServices"/>
+      <parameter name="className" value="com.co.linda.services.LindaServicesSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="LindaServices"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="servicioLinda" qname="operNS:servicioLinda" xmlns:operNS="http://services.linda.co.com" returnQName="retNS:servicioLindaReturn" xmlns:retNS="http://services.linda.co.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="servicioLinda"/>
+
+  </service>
+</deployment>

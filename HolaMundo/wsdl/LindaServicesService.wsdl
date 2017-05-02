@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="LindaServicesService" targetNamespace="http://services.linda.co.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.linda.co.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://services.linda.co.com/" schemaLocation="LindaServicesService_schema1.xsd"></import>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="servicioLindaResponse">
+    <wsdl:part name="parameters" element="tns:servicioLindaResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="servicioLinda">
+    <wsdl:part name="parameters" element="tns:servicioLinda">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="LindaServices">
+    <wsdl:operation name="servicioLinda">
+      <wsdl:input name="servicioLinda" message="tns:servicioLinda">
+    </wsdl:input>
+      <wsdl:output name="servicioLindaResponse" message="tns:servicioLindaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LindaServicesServiceSoapBinding" type="tns:LindaServices">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="servicioLinda">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="servicioLinda">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="servicioLindaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LindaServicesService">
+    <wsdl:port name="LindaServicesPort" binding="tns:LindaServicesServiceSoapBinding">
+      <soap:address location="http://localhost:9090/LindaServicesPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
